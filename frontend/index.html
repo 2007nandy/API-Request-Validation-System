@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>API Request Validation System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>API Request Validation System</h1>
+        <p>Validate your API requests easily</p>
+    </header>
+
+    <main class="container">
+
+        <!-- Request Builder -->
+        <section class="card">
+
+            <h2>Request Builder</h2>
+
+            <label>HTTP Method</label>
+
+            <select id="method">
+                <option>GET</option>
+                <option>POST</option>
+                <option>PUT</option>
+                <option>DELETE</option>
+            </select>
+
+            <label>API URL</label>
+
+            <input
+                type="text"
+                id="url"
+                placeholder="Enter API URL"
+            >
+
+            <label>JSON Request Body</label>
+
+            <textarea
+                id="jsonBody"
+                placeholder='{"name":"Arun","email":"arun@gmail.com"}'
+            ></textarea>
+
+            <button onclick="validateRequest()">
+                Validate Request
+            </button>
+
+        </section>
+
+        <!-- Validation Result -->
+        <section class="card">
+
+            <h2>Validation Result</h2>
+
+            <div id="result">
+                Your validation result will appear here.
+            </div>
+
+        </section>
+
+        <!-- Saved Requests -->
+        <section class="card">
+
+            <h2>Saved API Requests</h2>
+
+            <button onclick="loadRequests()">
+                View Saved Requests
+            </button>
+
+            <div id="requestHistory">
+                Click the button to view saved requests.
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
