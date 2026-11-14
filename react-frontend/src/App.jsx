@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 
-const API = "http://localhost:5000";
+const API = "https://api-request-validation-backend.onrender.com";
 
 // Dashboard Page
 function Dashboard({ requests }) {

@@ -1,4 +1,7 @@
 
+// Live Backend URL
+const API = "https://api-request-validation-backend.onrender.com";
+
 // Validate API Request
 async function validateRequest() {
 
@@ -27,7 +30,7 @@ async function validateRequest() {
 
     try {
         const response = await fetch(
-            "http://localhost:5000/api/validate",
+            `${API}/api/validate`,
             {
                 method: "POST",
                 headers: {
@@ -118,7 +121,7 @@ async function loadRequests() {
 
     try {
         const response = await fetch(
-            "http://localhost:5000/api/requests"
+            `${API}/api/requests`
         );
 
         if (!response.ok) {
@@ -306,7 +309,7 @@ async function editRequest(request) {
 
     try {
         const response = await fetch(
-            `http://localhost:5000/api/requests/${encodeURIComponent(request._id)}`,
+            `${API}/api/requests/${encodeURIComponent(request._id)}`,
             {
                 method: "PUT",
                 headers: {
@@ -350,7 +353,7 @@ async function deleteRequest(id) {
 
     try {
         const response = await fetch(
-            `http://localhost:5000/api/requests/${encodeURIComponent(id)}`,
+            `${API}/api/requests/${encodeURIComponent(id)}`,
             {
                 method: "DELETE"
             }
