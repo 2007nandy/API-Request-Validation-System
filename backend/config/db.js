@@ -1,15 +1,15 @@
+require("dotenv").config();
 
 const mongoose = require("mongoose");
 
 const connectDB = async () => {
     try {
-        await mongoose.connect(
-            "mongodb://127.0.0.1:27017/api_validation"
-        );
+        await mongoose.connect(process.env.MONGODB_URI);
 
-        console.log("MongoDB Connected Successfully!");
+        console.log("MongoDB Atlas Connected Successfully!");
     } catch (error) {
         console.error("MongoDB Connection Failed:", error.message);
+        process.exit(1);
     }
 };
 
