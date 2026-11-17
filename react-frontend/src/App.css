@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: "Segoe UI", Arial, sans-serif;
 }
 
 body {
@@ -16,98 +16,198 @@ body {
 }
 
 .header {
-    background: #172554;
+    background: linear-gradient(120deg, #172554, #1d4ed8);
     color: white;
     text-align: center;
-    padding: 30px 15px;
+    padding: 38px 15px;
 }
 
 .header h1 {
-    font-size: 30px;
-    margin-bottom: 10px;
+    font-size: 32px;
+    margin-bottom: 9px;
+    letter-spacing: 0.4px;
 }
 
 .header p {
-    color: #cbd5e1;
+    color: #dbeafe;
+    font-size: 15px;
 }
 
 .navbar {
-    background: #1e40af;
+    background: #ffffff;
     display: flex;
     justify-content: center;
-    gap: 35px;
-    padding: 16px;
+    gap: 38px;
+    padding: 18px;
     flex-wrap: wrap;
+    box-shadow: 0 3px 12px rgba(15, 23, 42, 0.07);
 }
 
 .navbar a {
-    color: white;
+    color: #334155;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 650;
+    transition: 0.2s;
 }
 
 .navbar a:hover {
-    color: #bfdbfe;
+    color: #2563eb;
 }
 
 .container {
     width: 92%;
-    max-width: 1200px;
-    margin: 30px auto;
+    max-width: 1250px;
+    margin: 32px auto;
 }
 
-.card {
+.card,
+.welcome-card,
+.stat-card {
     background: white;
-    padding: 25px;
-    margin-bottom: 25px;
-    border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    padding: 27px;
+    margin-bottom: 24px;
+    border: 1px solid #e2e8f0;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(15, 23, 42, 0.045);
 }
 
 .card h2 {
-    margin-bottom: 20px;
+    margin-bottom: 17px;
     color: #172554;
+    font-size: 23px;
+}
+
+.card h3 {
+    margin: 20px 0 12px;
+    color: #1e293b;
+}
+
+.welcome-card {
+    background: linear-gradient(120deg, #172554, #1e40af);
+    color: white;
+    padding: 36px;
+}
+
+.welcome-card h2 {
+    font-size: 29px;
+    margin: 10px 0;
+}
+
+.welcome-card p {
+    color: #dbeafe;
+}
+
+.eyebrow {
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.stat-card {
+    border-top: 4px solid #2563eb;
+}
+
+.stat-card span {
+    color: #64748b;
+    font-weight: 600;
+}
+
+.stat-card h2 {
+    color: #1e40af;
+    font-size: 34px;
+    margin-top: 12px;
+}
+
+.success-stat {
+    border-top-color: #16a34a;
+}
+
+.success-stat h2 {
+    color: #15803d;
+}
+
+.error-stat {
+    border-top-color: #dc2626;
+}
+
+.error-stat h2 {
+    color: #dc2626;
+}
+
+.section-description {
+    color: #64748b;
+    margin-bottom: 22px;
+    line-height: 1.6;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 13px;
 }
 
 label {
-    font-weight: bold;
+    font-weight: 650;
+    color: #334155;
+    margin-top: 5px;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
     width: 100%;
-    padding: 12px;
+    padding: 13px;
     border: 1px solid #cbd5e1;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 15px;
+    background: #ffffff;
+    color: #1e293b;
+    outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
 }
 
 textarea {
     resize: vertical;
+    font-family: Consolas, monospace;
 }
 
 button {
     background: #2563eb;
     color: white;
     border: none;
-    padding: 12px 18px;
-    border-radius: 6px;
+    padding: 13px 19px;
+    border-radius: 8px;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 650;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+form button {
+    margin-top: 12px;
 }
 
 button:hover {
     background: #1d4ed8;
+    transform: translateY(-1px);
 }
 
 button:disabled {
     opacity: 0.6;
     cursor: not-allowed;
+    transform: none;
 }
 
 .valid {
@@ -120,16 +220,221 @@ button:disabled {
     margin: 12px 0;
 }
 
+.status-pass,
+.status-fail {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 750;
+    letter-spacing: 0.4px;
+    margin: 10px 0;
+}
+
+.status-pass {
+    color: #166534;
+    background: #dcfce7;
+}
+
+.status-fail {
+    color: #991b1b;
+    background: #fee2e2;
+}
+
+/* FLAT analysis cards */
+
+.flat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.flat-card {
+    border: 1px solid #dbeafe;
+    background: #f8fbff;
+    padding: 22px;
+    border-radius: 12px;
+}
+
+.flat-card h3 {
+    color: #1e40af;
+    margin: 0 0 12px;
+}
+
+.flat-card p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.operation-list {
+    background: #eff6ff;
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 12px;
+}
+
+.operation-list p {
+    font-family: Consolas, monospace;
+    color: #1e40af;
+    font-size: 13px;
+    margin: 5px 0;
+}
+
+.code-output {
+    background: #172554;
+    color: #dbeafe !important;
+    padding: 10px;
+    border-radius: 7px;
+    margin: 9px 0;
+    overflow-wrap: anywhere;
+    font-family: Consolas, monospace;
+    font-size: 13px;
+}
+
+/* DFA visualization */
+
+.dfa-visual {
+    width: 100%;
+}
+
+.dfa-visual h3 {
+    margin: 22px 0 12px;
+}
+
+.dfa-scroll {
+    width: 100%;
+    overflow-x: auto;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 15px;
+    margin: 18px 0;
+}
+
+.dfa-scroll svg {
+    width: 100%;
+    min-width: 600px;
+    height: auto;
+}
+
+.dfa-arrow {
+    fill: none;
+    stroke: #64748b;
+    stroke-width: 2.5;
+}
+
+.error-arrow {
+    stroke: #dc2626;
+}
+
+.dfa-label {
+    fill: #475569;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.dfa-node {
+    fill: #e2e8f0;
+    stroke: #94a3b8;
+    stroke-width: 2;
+    transition: 0.2s;
+}
+
+.dfa-node-text {
+    fill: #334155;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.dfa-visited {
+    fill: #dbeafe;
+    stroke: #2563eb;
+}
+
+.dfa-current {
+    fill: #bfdbfe;
+    stroke: #1d4ed8;
+    stroke-width: 4;
+}
+
+.dfa-success {
+    fill: #dcfce7;
+    stroke: #16a34a;
+    stroke-width: 2.5;
+}
+
+.dfa-error {
+    fill: #fee2e2;
+    stroke: #dc2626;
+    stroke-width: 2.5;
+}
+
+.dfa-legend {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    color: #64748b;
+    font-size: 12px;
+    margin: 15px 0 24px;
+}
+
+.dfa-legend span:nth-child(1) {
+    color: #2563eb;
+}
+
+.dfa-legend span:nth-child(2) {
+    color: #1d4ed8;
+}
+
+.dfa-legend span:nth-child(3) {
+    color: #16a34a;
+}
+
+.dfa-legend span:nth-child(4) {
+    color: #dc2626;
+}
+
+.state-history {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 17px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    margin: 12px 0 25px;
+}
+
+.history-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #1e40af;
+    font-size: 14px;
+}
+
+.history-number {
+    background: #dbeafe;
+    color: #1e40af;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Tables */
+
 .requests-heading {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 15px;
     flex-wrap: wrap;
-}
-
-.card h3 {
-    margin: 15px 0;
 }
 
 .table-container {
@@ -142,12 +447,15 @@ table {
     border-collapse: collapse;
     margin-top: 15px;
     min-width: 850px;
+    background: white;
 }
 
-th, td {
-    padding: 12px;
+th,
+td {
+    padding: 13px;
     border: 1px solid #e2e8f0;
     text-align: left;
+    font-size: 13px;
 }
 
 th {
@@ -171,20 +479,46 @@ td button {
     background: #b91c1c;
 }
 
+/* Responsive layout */
+
+@media (max-width: 750px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .flat-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome-card h2 {
+        font-size: 23px;
+    }
+
+    .card {
+        padding: 19px;
+    }
+
+    .navbar {
+        gap: 20px;
+    }
+}
+
 @media (max-width: 600px) {
     .header h1 {
         font-size: 23px;
     }
 
-    .navbar {
-        gap: 18px;
-    }
-
     .container {
         width: 95%;
+        margin: 20px auto;
     }
 
-    .card {
-        padding: 16px;
+    .welcome-card {
+        padding: 24px;
+    }
+
+    .state-history {
+        align-items: flex-start;
+        flex-direction: column;
     }
 }
